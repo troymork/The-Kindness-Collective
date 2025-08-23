@@ -1,4 +1,4 @@
-# Content Calendar — Starter
+# Content Calendar - Starter
 Mon: Awakening stories
 Tue: Practices that help
 Wed: Relationships & boundaries

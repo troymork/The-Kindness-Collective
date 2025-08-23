@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "→ Creating directories…"
+echo "→ Creating directories..."
 mkdir -p prompts docs workflows scripts .github branding
 
-echo "→ Writing root files…"
+echo "→ Writing root files..."
 cat > README.md <<'MD'
 # The Kindness Collective (TKC)
-**TKC** is the community heart of **SPARK**. It’s where awakened people gather to share stories, practice kindness, and co-create projects. TKC uses a symphony of AI agents to orchestrate cross‑platform content, daily live conversations, and a “Kindness River” that weaves TikTok, Instagram, YouTube, Facebook, LinkedIn, and X into one shared flow.
+**TKC** is the community heart of **SPARK**. It's where awakened people gather to share stories, practice kindness, and co-create projects. TKC uses a symphony of AI agents to orchestrate cross‑platform content, daily live conversations, and a "Kindness River" that weaves TikTok, Instagram, YouTube, Facebook, LinkedIn, and X into one shared flow.
 
 ## Why TKC
-- People enter through **story and resonance**… TKC is the welcoming hearth.
+- People enter through **story and resonance**... TKC is the welcoming hearth.
 - **SPARK** measures and amplifies kindness with quests and rewards.
 - Together they form a humane prototype of the Agreement Economy.
 
-## What’s inside
+## What's inside
 - **/prompts**: Production-ready system prompts for the AI agent orchestra.
 - **/docs**: Vision, runbooks, platform strategy, SPARK integration, safety.
 - **/workflows**: Pipelines for daily Lives, crossposting, analytics loops.
@@ -27,10 +27,10 @@ cat > README.md <<'MD'
 3. Start with two agents: **Orchestrator** and **Repurposer**. Add others over time.
 
 ## Principles
-- **Kindness first**… safety and compassion are non‑negotiable.
-- **Sovereignty**… voice and consent are honored.
-- **Co‑creation**… iteration is normal.
-- **Measurement without judgment**… SPARK rewards action and growth.
+- **Kindness first**... safety and compassion are non‑negotiable.
+- **Sovereignty**... voice and consent are honored.
+- **Co‑creation**... iteration is normal.
+- **Measurement without judgment**... SPARK rewards action and growth.
 
 License: MIT (see `LICENSE`).
 MD
@@ -42,9 +42,9 @@ Copyright (c) 2025 The Kindness Collective
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction…
+in the Software without restriction...
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND…
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND...
 TXT
 
 cat > CODE_OF_CONDUCT.md <<'MD'
@@ -72,17 +72,17 @@ MD
 
 cat > ROADMAP.md <<'MD'
 # Roadmap
-## Phase 0 — Ignite
+## Phase 0 - Ignite
 - TikTok Lives (3x/week)
 - Orchestrator + Repurposer agents running
 - Kindness River as a Notion or Discord hub
 
-## Phase 1 — Weave
+## Phase 1 - Weave
 - Add Booking, Community, and Insights agents
 - Crosspost to IG Reels, YT Shorts, LinkedIn, FB, X
 - Launch guest pipeline with consent flows
 
-## Phase 2 — Flow
+## Phase 2 - Flow
 - Lightweight Kindness Hub web UI that aggregates streams
 - SPARK hooks for kindness quests & rewards
 - Rotating host roster + contributor program
@@ -111,7 +111,7 @@ NOTION_API_KEY=
 NOTION_DB_ID=
 ENV
 
-echo "→ Writing prompts…"
+echo "→ Writing prompts..."
 cat > prompts/orchestrator.system.md <<'MD'
 You are the **Orchestrator Agent** for TKC. Plan and route the daily content rhythm across TikTok, Instagram, YouTube, Facebook, LinkedIn, and X. Produce schedules, guest lineups, show briefs, and task tickets for other agents.
 
@@ -128,9 +128,9 @@ MD
 
 cat > prompts/repurposer.system.md <<'MD'
 You are the **Repurposer Agent**. From one Live, create within 2 hours:
-- 5–10 vertical clips with titles and suggested thumbnails
+- 5-10 vertical clips with titles and suggested thumbnails
 - 1 LinkedIn carousel outline
-- 1 X thread (6–10 posts)
+- 1 X thread (6-10 posts)
 - 1 newsletter draft with key insights and upcoming guests
 - A metadata sheet: timestamps, speakers, consent flags, sensitive topics
 MD
@@ -187,7 +187,7 @@ Scope:
 MD
 
 cat > prompts/sparkle-scribe.system.md <<'MD'
-You are the **Sparkle Scribe Agent**. Translate stories into SPARK‑friendly “kindness quests.”
+You are the **Sparkle Scribe Agent**. Translate stories into SPARK‑friendly "kindness quests."
 
 Per quest:
 - Title + 1‑sentence purpose
@@ -195,7 +195,7 @@ Per quest:
 - Reward suggestion + why it matters
 MD
 
-echo "→ Writing docs…"
+echo "→ Writing docs..."
 cat > docs/vision.md <<'MD'
 # TKC Vision
 TKC is a sanctuary for awakened humans to practice kindness and co-create. We broadcast daily resonance, weave communities across platforms, and translate inspiration into action through SPARK.
@@ -203,19 +203,19 @@ MD
 
 cat > docs/platform-strategy.md <<'MD'
 # Platform Strategy
-**TikTok**: Daily Live home base.  
-**Instagram**: Reels + carousels; behind-the-scenes.  
-**YouTube**: Shorts + long-form archives; playlists by theme/guest.  
-**LinkedIn**: Carousels/threads; professional reflections; collaborator calls.  
-**Facebook**: Group discussion; Live mirroring.  
+**TikTok**: Daily Live home base.
+**Instagram**: Reels + carousels; behind-the-scenes.
+**YouTube**: Shorts + long-form archives; playlists by theme/guest.
+**LinkedIn**: Carousels/threads; professional reflections; collaborator calls.
+**Facebook**: Group discussion; Live mirroring.
 **X**: Threads; real-time conversation.
 MD
 
 cat > docs/kindness-hour-runbook.md <<'MD'
-# Kindness Hour — Runbook
+# Kindness Hour - Runbook
 Cadence: start 3×/week, grow to daily.
 Flow:
-1) Hook (10s)  2) Check‑in Q  3) Story + reflection  4) Collective wisdom  
+1) Hook (10s)  2) Check‑in Q  3) Story + reflection  4) Collective wisdom
 5) Kindness quest CTA  6) Gratitude + teaser
 
 Roles:
@@ -260,7 +260,7 @@ MD
 
 cat > docs/brand-voice.md <<'MD'
 # Brand Voice
-Tone: warm, invitational, clear.  
+Tone: warm, invitational, clear.
 Pillars:
 - Awakening is normal and messy
 - Kindness is a practice
@@ -269,14 +269,14 @@ MD
 
 cat > docs/guest-pipeline.md <<'MD'
 # Guest Pipeline
-1) Outreach with brief + consent link  
-2) Scheduling + tech check  
-3) Day-of run-of-show  
+1) Outreach with brief + consent link
+2) Scheduling + tech check
+3) Day-of run-of-show
 4) Post-show gratitude + highlights
 MD
 
 cat > docs/content-calendar.md <<'MD'
-# Content Calendar — Starter
+# Content Calendar - Starter
 Mon: Awakening stories
 Tue: Practices that help
 Wed: Relationships & boundaries
@@ -295,7 +295,7 @@ cat > docs/moderation-and-safety.md <<'MD'
 MD
 
 cat > docs/kindness-river-architecture.md <<'MD'
-# Kindness River — Architecture (v0)
+# Kindness River - Architecture (v0)
 Goal: unify streams from TikTok, IG, YT, FB, LinkedIn, X into a single view without replacing platforms.
 
 flow (v0):
@@ -328,11 +328,11 @@ MD
 
 cat > docs/content-calendar-2w.md <<'MD'
 # Two-Week Content Calendar Seed (America/Chicago)
-Window: Aug 25 – Sep 7, 2025
-# …(full two-week plan as provided earlier; keep as-is)…
+Window: Aug 25 - Sep 7, 2025
+# ...(full two-week plan as provided earlier; keep as-is)...
 MD
 
-echo "→ Workflows…"
+echo "→ Workflows..."
 cat > workflows/daily-live-pipeline.md <<'MD'
 # Daily Live Pipeline
 Before:
@@ -364,7 +364,7 @@ cat > workflows/analytics-and-insight-loop.md <<'MD'
 - Recommend 3 next topics each week
 MD
 
-echo "→ Scripts…"
+echo "→ Scripts..."
 cat > scripts/oi_tasks.md <<'MD'
 # OI Tasks
 ## First push:
@@ -392,7 +392,7 @@ git push -u origin "$BR"
 SH
 chmod +x scripts/*.sh || true
 
-echo "→ GitHub templates…"
+echo "→ GitHub templates..."
 mkdir -p .github
 cat > .github/ISSUE_TEMPLATE.md <<'MD'
 ## Summary
@@ -410,7 +410,7 @@ cat > .github/PULL_REQUEST_TEMPLATE.md <<'MD'
 ## Linked issues
 MD
 
-echo "→ Branding…"
+echo "→ Branding..."
 cat > branding/logo-notes.md <<'MD'
 # Logo Notes
 Simple circle with subtle radiance. Warm gold on indigo.
@@ -423,7 +423,7 @@ Body: warm humanist sans
 Palette: Midnight indigo, soft gold, gentle cream, leaf green accents
 MD
 
-echo "→ Commit & push…"
+echo "→ Commit & push..."
 git add -A
 git commit -m "feat: apply TKC blueprint (prompts, docs, workflows, scripts, branding)" || true
 git push -u origin main
