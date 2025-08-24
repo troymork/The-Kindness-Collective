@@ -8,3 +8,7 @@ __pycache__/
 .DS_Store
 !.env.example
 logs/
+tkc.sqlite3
+tkc.sqlite3-*
+logs/
+server.log

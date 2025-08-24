@@ -1,0 +1,24 @@
+name: TKC CI
+on:
+  push: { branches: [ main, develop ] }
+  pull_request: { branches: [ main, develop ] }
+
+jobs:
+  api-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Start API
+        run: |
+          nohup python3 server.py > server.log 2>&1 &
+          for i in {1..20}; do
+            curl -fsS http://localhost:8000/health && break
+            sleep 0.5
+          done
+      - name: Smoke test (submit → verify → reward → feed)
+        run: |
+          chmod +x scripts/smoke_test.sh
+          scripts/smoke_test.sh
