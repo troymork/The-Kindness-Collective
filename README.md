@@ -1,3 +1,7 @@
+# The Kindness Collective
+
+[![CI](https://github.com/troymork/The-Kindness-Collective/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/troymork/The-Kindness-Collective/actions/workflows/ci.yml)
+
 # The Kindness Collective (TKC)
 **TKC** is the community heart of **SPARK**. It's where awakened people gather to share stories, practice kindness, and co-create projects. TKC uses a symphony of AI agents to orchestrate cross‑platform content, daily live conversations, and a "Kindness River" that weaves TikTok, Instagram, YouTube, Facebook, LinkedIn, and X into one shared flow.
 
