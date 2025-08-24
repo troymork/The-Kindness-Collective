@@ -1,0 +1,25 @@
+name: Emit SPARK Event (manual)
+on:
+  workflow_dispatch:
+    inputs:
+      event_type:
+        description: 'Event type (e.g., act_verified, reward_granted)'
+        required: true
+      payload_json:
+        description: 'JSON payload string'
+        required: true
+jobs:
+  emit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Emit
+        env:
+          SPARK_WEBHOOK_URL: ${{ secrets.SPARK_WEBHOOK_URL }}
+          SPARK_API_KEY: ${{ secrets.SPARK_API_KEY }}
+        run: |
+          chmod +x scripts/emit_spark_event.py
+          scripts/emit_spark_event.py "${{ inputs.event_type }}" '${{ inputs.payload_json }}'
