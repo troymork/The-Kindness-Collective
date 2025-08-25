@@ -4,10 +4,12 @@ import { fileURLToPath } from "url";
 import { ENABLE, SAFE_MODE } from "../config";
 
 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");       // automation/
 const OUT  = path.resolve(ROOT, "out");
+
 
 
 function readJSON(p: string){ return JSON.parse(fs.readFileSync(p, "utf8")); }
