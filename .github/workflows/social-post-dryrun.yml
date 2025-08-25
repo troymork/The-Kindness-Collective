@@ -1,0 +1,29 @@
+name: Post Drafts (SAFE_MODE)
+on:
+  workflow_dispatch:
+    inputs:
+      episode:
+        description: "Episode ID (optional, e.g., KH-2025-08-26). If blank, process all."
+        required: false
+        default: ""
+jobs:
+  dryrun:
+    runs-on: ubuntu-latest
+    env:
+      SAFE_MODE: "true"   # Force safe mode here
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install dev deps
+        run: npm --prefix automation install
+      - name: Ensure drafts exist (build if needed)
+        run: npm --prefix automation run build:drafts || true
+      - name: DRY RUN (log intended payloads)
+        run: |
+          if [ -n "${{ github.event.inputs.episode }}" ]; then
+            npm --prefix automation run post:episode "${{ github.event.inputs.episode }}"
+          else
+            npm --prefix automation run post:dryrun
+          fi

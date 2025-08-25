@@ -4,7 +4,9 @@
   "type": "module",
   "scripts": {
     "build:drafts": "tsx generators/from-brief.ts",
-    "bundle:drafts": "tsx tools/bundle_to_markdown.ts"
+    "bundle:drafts": "tsx tools/bundle_to_markdown.ts",
+    "post:dryrun": "tsx tools/post_drafts_safe.ts",
+    "post:episode": "tsx tools/post_drafts_safe.ts"
   },
   "devDependencies": {
     "tsx": "^4.7.0",
