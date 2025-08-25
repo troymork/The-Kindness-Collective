@@ -1,15 +1,17 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const ROOT = path.resolve(__dirname, "..");
 import { BaseDraft, PlatformDraft } from "../types";
 
 function readBrief(): string {
-  const a = path.resolve(process.cwd(), "automation/docs/show-brief.md");
+  const a = path.resolve(ROOT, "docs/show-brief.md");
   const b = path.resolve(process.cwd(), "docs/show-brief.md");
   if (fs.existsSync(a)) return fs.readFileSync(a, "utf8");
   if (fs.existsSync(b)) return fs.readFileSync(b, "utf8");
-  console.error(`Missing brief. Create either:
-- automation/docs/show-brief.md  OR
-- docs/show-brief.md`);
+  console.error("Missing brief. Create automation/docs/show-brief.md or docs/show-brief.md");
   process.exit(1);
 }
 
@@ -67,7 +69,7 @@ function toFacebook(d: BaseDraft): PlatformDraft {
 function main() {
   const md = readBrief();
   const base = parseBrief(md);
-  const outDir = path.resolve(process.cwd(), "automation/out", base.id);
+  const outDir = path.resolve(ROOT, "out", base.id);
   fs.mkdirSync(outDir, { recursive: true });
   const drafts = [toX(base), toLinkedIn(base), toInstagram(base), toYouTube(base), toFacebook(base)];
   fs.writeFileSync(path.join(outDir, "base.json"), JSON.stringify(base, null, 2));
