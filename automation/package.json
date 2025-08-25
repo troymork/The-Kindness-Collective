@@ -11,6 +11,7 @@
     "route:episode": "tsx tools/post_router.ts"
   },
   "devDependencies": {
+    "node-fetch": "^3.3.2",
     "tsx": "^4.7.0",
     "typescript": "^5.5.4"
   }

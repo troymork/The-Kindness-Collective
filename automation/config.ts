@@ -7,6 +7,9 @@ export const ENABLE = {
   instagram:(process.env.ENABLE_INSTAGRAM?? "false").toLowerCase() === "true",
   youtube:  (process.env.ENABLE_YOUTUBE  ?? "false").toLowerCase() === "true",
   facebook: (process.env.ENABLE_FACEBOOK ?? "false").toLowerCase() === "true",
+  // Optional Meta adapters (alternate path)
+  instagram_meta: (process.env.ENABLE_INSTAGRAM_META ?? "false").toLowerCase() === "true",
+  facebook_meta:  (process.env.ENABLE_FACEBOOK_META  ?? "false").toLowerCase() === "true",
 };
 
 /** Helpers for reading secrets when you wire real APIs */
