@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:drafts": "tsx generators/from-brief.ts"
+    "build:drafts": "tsx generators/from-brief.ts",
+    "bundle:drafts": "tsx tools/bundle_to_markdown.ts"
   },
   "devDependencies": {
     "tsx": "^4.7.0",

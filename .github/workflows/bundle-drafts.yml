@@ -1,0 +1,40 @@
+name: Bundle Drafts to Markdown
+on:
+  workflow_dispatch:
+    inputs:
+      episode:
+        description: "Episode ID (optional, e.g., KH-2025-08-26)"
+        required: false
+        default: ""
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install dev deps
+        run: npm --prefix automation install
+      - name: Build drafts (ensures JSON exists)
+        run: npm --prefix automation run build:drafts || true
+      - name: Bundle to Markdown
+        run: |
+          if [ -n "${{ github.event.inputs.episode }}" ]; then
+            npx --yes tsx automation/tools/bundle_to_markdown.ts "${{ github.event.inputs.episode }}"
+          else
+            npx --yes tsx automation/tools/bundle_to_markdown.ts
+          fi
+      - name: Upload drafts
+        uses: actions/upload-artifact@v4
+        with:
+          name: drafts-md
+          path: automation/out/**/drafts.md
+      - name: Commit drafts.md
+        run: |
+          git config user.name "tkc-bot"
+          git config user.email "bot@tkc.local"
+          git add automation/out/**/drafts.md || true
+          git commit -m "chore: bundle drafts to Markdown [skip ci]" || echo "no changes"
+      - name: Push branch
+        run: git push
