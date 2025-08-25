@@ -12,3 +12,5 @@ tkc.sqlite3
 tkc.sqlite3-*
 logs/
 server.log
+automation/node_modules
+The-Kindness-Collective/

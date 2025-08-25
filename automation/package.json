@@ -1,0 +1,12 @@
+{
+  "name": "tkc-automation",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:drafts": "tsx generators/from-brief.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.5.4"
+  }
+}

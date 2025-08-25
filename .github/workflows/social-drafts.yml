@@ -1,0 +1,35 @@
+name: Build Social Drafts
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "5 8 * * *"  # 01:05 PT / 08:05 UTC
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install dev deps
+        run: npm --prefix automation install
+      - name: Build drafts from show brief
+        run: npm --prefix automation run build:drafts
+      - name: Upload drafts artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: social-drafts
+          path: automation/out/**
+      - name: Commit drafts
+        run: |
+          git config user.name "tkc-bot"
+          git config user.email "bot@tkc.local"
+          git add automation/out || true
+          git commit -m "chore: add social drafts from show brief [skip ci]" || echo "no changes"
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: social drafts from show brief"
+          title: "Social drafts: $(date -u +'%Y-%m-%d')"
+          body: "Auto-generated platform drafts from docs/show-brief.md"
+          branch: chore/social-drafts
